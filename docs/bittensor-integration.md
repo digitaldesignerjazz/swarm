@@ -19,6 +19,50 @@ Integrating Bittensor can significantly enhance the intelligence capabilities of
 - Create hybrid incentive mechanisms between TAO and XCoin/QCoin
 - Improve swarm coordination through external intelligence providers
 
+## Architecture Diagram
+
+```mermaid
+graph TD
+    subgraph Nexus["Nexus Layer"]
+        NexusOrch[Orchestration & Swarm Intelligence]
+        TaskRouter[Task Routing to Bittensor]
+    end
+
+    subgraph QNET["QNET Blockchain Layer"]
+        MemoryRunes[Memory Runes]
+        Reputation[On-chain Reputation]
+        Incentives[Incentive Distribution]
+    end
+
+    subgraph Mesh["Xanadu + xmesh Layer"]
+        P2P[Peer-to-Peer Messaging]
+        Gossip[Gossip Protocols]
+        Privacy[Privacy-preserving Transport]
+    end
+
+    subgraph Bittensor["Bittensor Network"]
+        Subnets[Specialized Subnets]
+        Miners[Miners providing Intelligence]
+        Validators[Validators]
+    end
+
+    NexusOrch -->|Routes tasks| TaskRouter
+    TaskRouter -->|Queries| Subnets
+    Subnets -->|Returns results| NexusOrch
+
+    NexusOrch -->|Anchors important outputs| MemoryRunes
+    MemoryRunes -->|Influences| Reputation
+    Reputation -->|Affects| Incentives
+
+    NexusOrch <-->|Coordinates via| P2P
+    P2P -->|Shares memory references| Gossip
+
+    style Nexus fill:#e3f2fd,stroke:#1976d2
+    style QNET fill:#fff3e0,stroke:#f57c00
+    style Mesh fill:#e8f5e9,stroke:#388e3c
+    style Bittensor fill:#f3e5f5,stroke:#7b1fa2
+```
+
 ## Proposed Integration Architecture
 
 ```
